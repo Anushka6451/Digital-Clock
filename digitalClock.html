@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1 {
+            color: cyan;
+            font-size: 40px;
+            text-shadow: 0 0 20px cyan;
+            margin-bottom: 50px;
+        }
+
+        .clock-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .time-box {
+            border-radius: 20px;
+            padding: 20px;
+            width: 150px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+            font-size: 50px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #fff;
+        }
+
+        .label {
+            margin-top: 10px;
+            font-size: 20px;
+            color: white;
+        }
+
+        .hours {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .minutes {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .seconds {
+            background-color: #FF69B4;
+            color: white;
+        }
+    </style>
+</head>
+<body onload="showTime()">
+
+    <h1>THE TIME IS NOW</h1>
+
+    <div class="clock-container">
+        <div>
+            <div id="hours" class="time-box hours">00</div>
+            <div class="label">Hours</div>
+        </div>
+        <div>
+            <div id="minutes" class="time-box minutes">00</div>
+            <div class="label">Minutes</div>
+        </div>
+        <div>
+            <div id="seconds" class="time-box seconds">00</div>
+            <div class="label">Seconds</div>
+        </div>
+    </div>
+
+    <script>
+        function showTime() {
+            let date = new Date();
+            let h = date.getHours();
+            let m = date.getMinutes();
+            let s = date.getSeconds();
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            document.getElementById("hours").innerText = h;
+            document.getElementById("minutes").innerText = m;
+            document.getElementById("seconds").innerText = s;
+
+            setTimeout(showTime, 1000);
+        }
+    </script>
+
+</body>
+</html>
